@@ -15,7 +15,7 @@
     "explode",
     "dataframe"
   ],
-  "author": "dbbrowne",
+  "author": "dbbrowne <hello@dbb.tools>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DBBrowne/js-pandas-explode/issues"
@@ -24,5 +24,6 @@
   "devDependencies": {
     "@types/jest": "^27.5.0",
     "jest": "^28.0.3"
-  }
+  },
+  "files": ["index.js"]
 }
