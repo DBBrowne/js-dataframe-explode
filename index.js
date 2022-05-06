@@ -84,9 +84,7 @@ function explode(target, explodeBases, ignoreIndex = false, omitIndex = false){
           out[propToAppendTo].push(valToAppend)
         })
 
-        if(out['trackingIndex']){
-          out['trackingIndex'].push(trackingIndex)
-        }
+        out['trackingIndex']?.push(trackingIndex)
         if(ignoreIndex) trackingIndex++
       })
 
