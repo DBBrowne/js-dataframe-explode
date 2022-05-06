@@ -2,6 +2,8 @@
 
 Javascript / Node implementation of [Python's Pandas DataFrame#explode](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.explode.html).
 
+[![Test](https://github.com/DBBrowne/js-pandas-explode/actions/workflows/test.yml/badge.svg)](https://github.com/DBBrowne/js-pandas-explode/actions/workflows/test.yml)  [![Release](https://github.com/DBBrowne/js-pandas-explode/actions/workflows/release.yml/badge.svg)](https://github.com/DBBrowne/js-pandas-explode/actions/workflows/release.yml)
+
 ## Contents
 - [JS-Pandas-Explode](#js-pandas-explode)
 - [Demos](#demos)
