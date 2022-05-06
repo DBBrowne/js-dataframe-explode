@@ -48,9 +48,37 @@ console.log(doubleColumnExplode)
 ```
 
 ### Usage
+```js
+const explode = require('@dbbrowne/js-pandas-explode')
+
+// your DataFrame (an object with own properties that are list-likes or primitives)
+const myDataFrame = {
+    A: [...]
+  foo: [...]
+    b: 'bar'
+    1: {foo:'bar'}
+  '2': 'three'
+}
+
+explode(
+  myDataFrame, 
+  explodeBases, // Bases to explode.  Default = Object.getOwnPropertyNames(myDataFrame)[0]
+  ignoreIndex,  // By default, trackingIndex records the original index of the input list. True for trackingIndex to match the index of the exploded list. Default=false
+  omitIndex     // true to omit tracking index entirely. Default=false
+)
+```
 
 ```console
-npm i @dbbrowne/yamlise
+npm i @dbbrowne/js-pandas-explode
+```
+myfile.js :
+```js
+const explode = require('@dbbrowne/js-pandas-explode')
+
+const dataFrame = myDataFrame
+
+var explodedDefaultColumn = explode(dataFrame)
+singleColumnExplode
 ```
 
 ### Running Tests
@@ -86,3 +114,5 @@ Tests:       11 passed, 11 total
 ### Known Issues
 
 Please report any issues, or open a PR!
+
+ - tests to prove behaviour for dataframe prop with {1:[...], 'bar':[...], B: {foo:'bar'}}

@@ -26,9 +26,15 @@ function elementsExplodableAcrossBases(target, explodeBases, index){
   return iterableMatch
 }
 
-// explodeBase is optional,
-// however there is no guarantee that the 
-// first listed property of an object is consistent
+/**
+ * Explode an object of arrays, based on explodeBases.
+ * @param {Object} target - DataFrame to explode.
+ * @param {string[]} [explodeBases=Object.getOwnPropertyNames(myDataFrame)[0]] - property names to base explosion upon.
+ * @param {boolean} [ignoreIndex=false] - By default, trackingIndex records the original index of the input list. True for trackingIndex to match the index of the exploded list.
+ * @param {boolean} [omitIndex=false] - true to omit tracking index entirely.
+ * 
+ * @returns {Object} Exploded DataFrame with trackingIndex.
+ */
 function explode(target, explodeBases, ignoreIndex = false, omitIndex = false){
   const props = Object.getOwnPropertyNames(target)
   const out = {}
