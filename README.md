@@ -73,7 +73,7 @@ npm run test
       inferring a tracking index if
         ✓ none is provided (1 ms)
         ✓ an empty list is provided (1 ms)
-    throws on invalid inputs on:
+    throws on invalid inputs:
       ✓ non-matching multi-column explode elements (9 ms)
       ✓ attempting to explode a non-iterable (1 ms)
     matches pandas.DataFrame.explode docs

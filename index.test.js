@@ -138,7 +138,7 @@ describe('js-pandas-explode', ()=>{
       expect(out).toStrictEqual(expected)
     })
   })
-  describe('throws on invalid inputs on:', ()=>{
+  describe('throws on invalid inputs:', ()=>{
     it('non-matching multi-column explode elements',()=>{
       const input = {
         A: [   [0, 1, 2, 4], 'foo', [],     [3, 4]],
