@@ -75,27 +75,20 @@ function explode(target, explodeBases, ignoreIndex = false, omitIndex = false){
         targetElement = [undefined]
       }
       
-      targetElement.forEach(function(_el, index){
-        props.forEach(function(propToAppendTo){
-          let valToAppend = target[propToAppendTo][elementIndex]
-
-          if(isListLike(valToAppend) && explodeBases.includes(propToAppendTo)) {
-            out[propToAppendTo].push(valToAppend[index])
+      props.forEach(function(propToAppendTo){
+          if (explodeBases.includes(propToAppendTo)){
+            out[propToAppendTo] = target[propToAppendTo].flat()
             return
           }
-
-          if(null == valToAppend){
-            valToAppend = target[propToAppendTo]
-          }
-          out[propToAppendTo].push(valToAppend)
+          
+          out[propToAppendTo] = target[propToAppendTo].flat()
         })
 
         out['trackingIndex']?.push(trackingIndex)
         if(ignoreIndex) trackingIndex++
       })
 
-      if(!ignoreIndex) trackingIndex++
-  })
+    if(!ignoreIndex) trackingIndex++
 
   return out
 }
