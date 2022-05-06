@@ -80,7 +80,8 @@ const explode = require('@dbbrowne/js-pandas-explode')
 const dataFrame = myDataFrame
 
 var explodedDefaultColumn = explode(dataFrame)
-singleColumnExplode
+var singleColumnExplode   = explode(dataFrame, ['C'])
+var multipleColumnExplode = explode(dataFrame, ['A','C'])
 ```
 
 ### Running Tests
