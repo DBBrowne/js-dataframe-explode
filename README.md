@@ -22,7 +22,7 @@ const dataFrame = {
 const singleColumnExplode = explode(dataFrame, ['A'])
 console.log(singleColumnExplode)
 ```
->>>
+-->>
 ```console
 {
   A:  [             0,               1,               2, 'foo', undefined,           3,          4],
@@ -36,7 +36,7 @@ console.log(singleColumnExplode)
 const doubleColumnExplode = explode(dataFrame, ['A', 'C'])
 console.log(doubleColumnExplode)
 ```
---->>
+-->>
 ```console
 {
   A:  [  0,     1,   2, 'foo', undefined,   3,   4],
