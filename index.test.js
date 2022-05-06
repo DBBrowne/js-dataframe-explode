@@ -1,6 +1,6 @@
 const explode = require('./index.js')
 
-describe('js-pandas-explode', ()=>{
+describe('js-dataframe-explode', ()=>{
   describe('explodes a DataFrame-like object', ()=>{
     it('retaining the tracking index', ()=>{
       const input = {
@@ -167,7 +167,7 @@ describe('js-pandas-explode', ()=>{
       const expectedThrowWithBase = explodeBases[0]
       const expectedError = new Error(`explodeBase ${expectedThrowWithBase} is not list-like`)
 
-      expect(function () {return explode(input, explodeBases)}).toThrowError(expectedError)
+      expect(function () {explode(input, explodeBases)}).toThrowError(expectedError)
     })
   })
 
@@ -204,4 +204,44 @@ describe('js-pandas-explode', ()=>{
       expect(out).toStrictEqual(expected)
     })
   })
+})
+
+describe('js-dataframe-explode',()=>{
+  it('handles null in base property',()=>{
+      const input = {
+        A: [[null,1,null]],
+        B: [      1],
+      }
+      const columnsToExplode = ['A']
+
+      const out = explode(input, columnsToExplode)
+
+      const expected = {
+        A:  [null, 1, null],
+        B:  [1, 1,    1],
+        trackingIndex:
+            [0, 0, 0],
+      }
+
+      expect(out).toStrictEqual(expected)
+    })
+  it('handles null in reference property',()=>{
+      const input = {
+        A: [[0,1,2]],
+        B: [[1, null, 2]],
+      }
+      const columnsToExplode = ['A', 'B']
+
+      const out = explode(input, columnsToExplode)
+      console.log(out)
+
+      const expected = {
+        A:  [0,    1, 2],
+        B:  [1, null, 2],
+        trackingIndex:
+            [0, 0, 0],
+      }
+
+      expect(out).toStrictEqual(expected)
+    })
 })

@@ -1,11 +1,11 @@
-# JS-Pandas-Explode
+# JS-DataFrame-Explode
 
 Javascript / Node implementation of [Python's Pandas DataFrame#explode](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.explode.html).
 
-[![Test](https://github.com/DBBrowne/js-pandas-explode/actions/workflows/test.yml/badge.svg)](https://github.com/DBBrowne/js-pandas-explode/actions/workflows/test.yml)  [![Release](https://github.com/DBBrowne/js-pandas-explode/actions/workflows/release.yml/badge.svg)](https://github.com/DBBrowne/js-pandas-explode/actions/workflows/release.yml)
+[![Test](https://github.com/DBBrowne/js-dataframe-explode/actions/workflows/test.yml/badge.svg)](https://github.com/DBBrowne/js-dataframe-explode/actions/workflows/test.yml)  [![Release](https://github.com/DBBrowne/js-dataframe-explode/actions/workflows/release.yml/badge.svg)](https://github.com/DBBrowne/js-dataframe-explode/actions/workflows/release.yml)
 
 ## Contents
-- [JS-Pandas-Explode](#js-pandas-explode)
+- [JS-dataframe-Explode](#js-dataframe-explode)
 - [Demos](#demos)
 - [Usage](#usage)
 - [Running Tests](#running-tests)
@@ -13,7 +13,7 @@ Javascript / Node implementation of [Python's Pandas DataFrame#explode](https://
 
 ### Demos
 ```js
-const explode = require('@dbbrowne/js-pandas-explode')
+const explode = require('@dbbrowne/js-dataframe-explode')
 
 const dataFrame = {
   A: [[0, 1, 2], 'foo', [], [3, 4]],
@@ -51,7 +51,7 @@ console.log(doubleColumnExplode)
 
 ### Usage
 ```js
-const explode = require('@dbbrowne/js-pandas-explode')
+const explode = require('@dbbrowne/js-dataframe-explode')
 
 // your DataFrame (an object with own properties that are list-likes or primitives)
 const myDataFrame = {
@@ -71,11 +71,11 @@ explode(
 ```
 
 ```console
-npm i @dbbrowne/js-pandas-explode
+npm i @dbbrowne/js-dataframe-explode
 ```
 myfile.js :
 ```js
-const explode = require('@dbbrowne/js-pandas-explode')
+const explode = require('@dbbrowne/js-dataframe-explode')
 
 const dataFrame = myDataFrame
 
@@ -90,11 +90,11 @@ npm run test
 ```
 -->>
 ```console
-> @dbbrowne/js-pandas-explode@1.0.0 test
+> @dbbrowne/js-dataframe-explode@1.0.0 test
 > jest
 
  PASS  ./index.test.js
-  js-pandas-explode
+  js-dataframe-explode
     explodes a DataFrame-like object
       ✓ retaining the tracking index (2 ms)
       ✓ basing the tracking index on the output (1 ms)

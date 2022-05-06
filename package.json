@@ -1,5 +1,5 @@
 {
-  "name": "@dbbrowne/js-pandas-explode",
+  "name": "@dbbrowne/js-dataframe-explode",
   "version": "1.0.2",
   "description": "JavaScript implementation of Python's Pandas#dataframe.explode method",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/DBBrowne/js-pandas-explode.git"
+    "url": "git+ssh://git@github.com/DBBrowne/js-dataframe-explode.git"
   },
   "keywords": [
     "pandas",
@@ -18,9 +18,9 @@
   "author": "dbbrowne <hello@dbb.tools>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DBBrowne/js-pandas-explode/issues"
+    "url": "https://github.com/DBBrowne/js-dataframe-explode/issues"
   },
-  "homepage": "https://github.com/DBBrowne/js-pandas-explode#readme",
+  "homepage": "https://github.com/DBBrowne/js-dataframe-explode#readme",
   "devDependencies": {
     "@types/jest": "^27.5.0",
     "jest": "^28.0.3"
