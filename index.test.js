@@ -82,7 +82,7 @@ describe('js-dataframe-explode', ()=>{
 
       expect(out).toStrictEqual(expected)
     })
-    describe('inferring a tracking index if', ()=>{
+    describe('inferring a property to explode if', ()=>{
       it('none is provided',()=>{
         const input = {
           A: [[0,1,2], 'foo', ['hi'], [3,4]],
@@ -233,7 +233,6 @@ describe('js-dataframe-explode',()=>{
       const columnsToExplode = ['A', 'B']
 
       const out = explode(input, columnsToExplode)
-      console.log(out)
 
       const expected = {
         A:  [0,    1, 2],

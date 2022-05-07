@@ -95,24 +95,26 @@ npm run test
 
  PASS  ./index.test.js
   js-dataframe-explode
+    ✓ handles null in base property
+    ✓ handles null in reference property (2 ms)
     explodes a DataFrame-like object
-      ✓ retaining the tracking index (2 ms)
-      ✓ basing the tracking index on the output (1 ms)
-      ✓ omitting the tracking index with "omitIndex=true"
+      ✓ retaining the tracking index (1 ms)
+      ✓ basing the tracking index on the output
+      ✓ omitting the tracking index with "omitIndex=true" (1 ms)
       ✓ with primitive reference values
-      ✓ based on an empty list
-      inferring a tracking index if
-        ✓ none is provided (1 ms)
-        ✓ an empty list is provided (1 ms)
+      ✓ based on an empty list (1 ms)
+      inferring a property to explode if
+        ✓ none is provided
+        ✓ an empty list is provided
     throws on invalid inputs:
-      ✓ non-matching multi-column explode elements (9 ms)
-      ✓ attempting to explode a non-iterable (1 ms)
+      ✓ non-matching multi-column explode elements (8 ms)
+      ✓ attempting to explode a non-iterable
     matches pandas.DataFrame.explode docs
-      ✓ single-column example (1 ms)
+      ✓ single-column example
       ✓ multi-column example (1 ms)
 
 Test Suites: 1 passed, 1 total
-Tests:       11 passed, 11 total
+Tests:       13 passed, 13 total
 ```
 ### Known Issues
 
