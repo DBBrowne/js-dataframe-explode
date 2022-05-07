@@ -1,9 +1,10 @@
 function isIterable(obj){
   // checks for null and undefined
+  // eslint-disable-next-line eqeqeq
   if (obj == null) {
-    return false;
+    return false
   }
-  return typeof obj[Symbol.iterator] === 'function';
+  return typeof obj[Symbol.iterator] === 'function'
 }
 function isListLike(obj) {
   return isIterable(obj) && 'string' !== typeof obj
@@ -15,7 +16,7 @@ function elementsExplodableAcrossBases(target, explodeBases, index){
   const comparisonIterable = isListLike(comparisonElement)
   const iterableMatch = explodeBases.every(function(base){
     let lengthMatch = true
-    if(comparisonIterable){
+    if (comparisonIterable){
       lengthMatch = comparisonElement.length === target[base][index].length
     }
     return (
@@ -40,61 +41,64 @@ function explode(target, explodeBases, ignoreIndex = false, omitIndex = false){
   const out = {}
   let trackingIndex = 0
 
-  if(!explodeBases || null == explodeBases[0]){
+  // checks for null and undefined
+  // eslint-disable-next-line eqeqeq
+  if (!explodeBases || null == explodeBases[0]){
     explodeBases = [props[0]]
   }
 
   props.forEach(function (prop){
     out[prop] = []
   })
-  if(!omitIndex){
+  if (!omitIndex){
     out['trackingIndex'] = []
   }
 
   explodeBases.forEach(function(base){
-    if(!isListLike(target[base])){
+    if (!isListLike(target[base])){
       throw new Error(`explodeBase ${base} is not list-like`)
     }
   })
 
   target[explodeBases[0]].forEach(function (
     elementInProperty, elementIndex
-    ){
-      if(!elementsExplodableAcrossBases(target, explodeBases, elementIndex)){
-        const nonmatchingElements = explodeBases.map(function(base){
-          return `${base} : ${target[base][elementIndex]}`
-        })
-        throw new Error(`Elements to explode do not match at index ${elementIndex}.\n${nonmatchingElements.join('\n')}`)
-      }
+  ){
+    if (!elementsExplodableAcrossBases(target, explodeBases, elementIndex)){
+      const nonmatchingElements = explodeBases.map(function(base){
+        return `${base} : ${target[base][elementIndex]}`
+      })
+      throw new Error(`Elements to explode do not match at index ${elementIndex}.\n${nonmatchingElements.join('\n')}`)
+    }
       
-      let targetElement = elementInProperty
-      if ( !Array.isArray(targetElement) ){
-        targetElement = [targetElement]
-      }
-      if(0 === targetElement.length){
-        targetElement = [undefined]
-      }
+    let targetElement = elementInProperty
+    if ( !Array.isArray(targetElement) ){
+      targetElement = [targetElement]
+    }
+    if (0 === targetElement.length){
+      targetElement = [undefined]
+    }
       
-      targetElement.forEach(function(_el, index){
-        props.forEach(function(propToAppendTo){
-          let valToAppend = target[propToAppendTo][elementIndex]
+    targetElement.forEach(function(_el, index){
+      props.forEach(function(propToAppendTo){
+        let valToAppend = target[propToAppendTo][elementIndex]
 
-          if(isListLike(valToAppend) && explodeBases.includes(propToAppendTo)) {
-            out[propToAppendTo].push(valToAppend[index])
-            return
-          }
-
-          if(null == valToAppend){
-            valToAppend = target[propToAppendTo]
-          }
-          out[propToAppendTo].push(valToAppend)
-        })
-
-        out['trackingIndex']?.push(trackingIndex)
-        if(ignoreIndex) trackingIndex++
+        if (isListLike(valToAppend) && explodeBases.includes(propToAppendTo)) {
+          out[propToAppendTo].push(valToAppend[index])
+          return
+        }
+        // checks for null and undefined
+        // eslint-disable-next-line eqeqeq
+        if (null == valToAppend){
+          valToAppend = target[propToAppendTo]
+        }
+        out[propToAppendTo].push(valToAppend)
       })
 
-      if(!ignoreIndex) trackingIndex++
+      out['trackingIndex']?.push(trackingIndex)
+      if (ignoreIndex) trackingIndex++
+    })
+
+    if (!ignoreIndex) trackingIndex++
   })
 
   return out

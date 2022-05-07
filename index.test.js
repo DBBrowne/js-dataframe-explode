@@ -1,3 +1,4 @@
+/* eslint-disable key-spacing */
 const explode = require('./index.js')
 
 describe('js-dataframe-explode', ()=>{
@@ -143,7 +144,7 @@ describe('js-dataframe-explode', ()=>{
       const input = {
         A: [   [0, 1, 2, 4], 'foo', [],     [3, 4]],
         B: 1,
-        C: [['a', 'b', 'c'],   NaN, [], ['d', 'e']]
+        C: [['a', 'b', 'c'],   NaN, [], ['d', 'e']],
       }
       const explodeBases = ['A', 'C']
 
@@ -154,20 +155,24 @@ describe('js-dataframe-explode', ()=>{
       const expectedThrowAtIndex = 0
       const expectedError = new Error(`Elements to explode do not match at index ${expectedThrowAtIndex}.\n${nonmatchingElements}`)
 
-      expect(function () {return explode(input, explodeBases)}).toThrowError(expectedError)
+      expect(function () {
+        return explode(input, explodeBases)
+      }).toThrowError(expectedError)
     })
     it('attempting to explode a non-iterable',()=>{
       const input = {
         A: [   [0, 1, 2, 4], 'foo', [],     [3, 4]],
         B: 1,
-        C: [['a', 'b', 'c'],   NaN, [], ['d', 'e']]
+        C: [['a', 'b', 'c'],   NaN, [], ['d', 'e']],
       }
       const explodeBases = ['B']
 
       const expectedThrowWithBase = explodeBases[0]
       const expectedError = new Error(`explodeBase ${expectedThrowWithBase} is not list-like`)
 
-      expect(function () {explode(input, explodeBases)}).toThrowError(expectedError)
+      expect(function () {
+        explode(input, explodeBases)
+      }).toThrowError(expectedError)
     })
   })
 
@@ -208,39 +213,39 @@ describe('js-dataframe-explode', ()=>{
 
 describe('js-dataframe-explode',()=>{
   it('handles null in base property',()=>{
-      const input = {
-        A: [[null,1,null]],
-        B: [      1],
-      }
-      const columnsToExplode = ['A']
+    const input = {
+      A: [[null,1,null]],
+      B: [1],
+    }
+    const columnsToExplode = ['A']
 
-      const out = explode(input, columnsToExplode)
+    const out = explode(input, columnsToExplode)
 
-      const expected = {
-        A:  [null, 1, null],
-        B:  [1, 1,    1],
-        trackingIndex:
+    const expected = {
+      A:  [null, 1, null],
+      B:  [1,    1,    1],
+      trackingIndex:
             [0, 0, 0],
-      }
+    }
 
-      expect(out).toStrictEqual(expected)
-    })
+    expect(out).toStrictEqual(expected)
+  })
   it('handles null in reference property',()=>{
-      const input = {
-        A: [[0,1,2]],
-        B: [[1, null, 2]],
-      }
-      const columnsToExplode = ['A', 'B']
+    const input = {
+      A: [[0,1,2]],
+      B: [[1, null, 2]],
+    }
+    const columnsToExplode = ['A', 'B']
 
-      const out = explode(input, columnsToExplode)
+    const out = explode(input, columnsToExplode)
 
-      const expected = {
-        A:  [0,    1, 2],
-        B:  [1, null, 2],
-        trackingIndex:
+    const expected = {
+      A:  [0,    1, 2],
+      B:  [1, null, 2],
+      trackingIndex:
             [0, 0, 0],
-      }
+    }
 
-      expect(out).toStrictEqual(expected)
-    })
+    expect(out).toStrictEqual(expected)
+  })
 })
