@@ -63,7 +63,7 @@ describe('js-dataframe-explode', ()=>{
 
       expect(out).toStrictEqual(expected)
     })
-    it.skip('with primitive reference values', ()=>{
+    it('with primitive reference values', ()=>{
       const input = {
         A: [[0,1,2], 'foo', ['hi'], [3,4]],
         B: 2,
@@ -102,7 +102,7 @@ describe('js-dataframe-explode', ()=>{
 
       expect(out).toStrictEqual(expected)
     })
-    describe.skip('inferring a property to explode if', ()=>{
+    describe('inferring a property to explode if', ()=>{
       it('none is provided',()=>{
         const input = {
           A: [[0,1,2], 'foo', ['hi'], [3,4]],
@@ -139,7 +139,7 @@ describe('js-dataframe-explode', ()=>{
         expect(out).toStrictEqual(expected)
       })
     })
-    it.skip('based on an empty list',()=>{
+    it('based on an empty list',()=>{
       const input = {
         A: [],
         B: 2,
@@ -158,7 +158,7 @@ describe('js-dataframe-explode', ()=>{
       expect(out).toStrictEqual(expected)
     })
   })
-  describe.skip('throws on invalid inputs:', ()=>{
+  describe('throws on invalid inputs:', ()=>{
     it('non-matching multi-column explode elements',()=>{
       const input = {
         A: [   [0, 1, 2, 4], 'foo', [],     [3, 4]],
@@ -196,7 +196,7 @@ describe('js-dataframe-explode', ()=>{
   })
 
 
-  describe.skip('matches pandas.DataFrame.explode docs', ()=>{
+  describe('matches pandas.DataFrame.explode docs', ()=>{
     const input = {
       A: [      [0, 1, 2], 'foo', [],     [3, 4]],
       B: 1,
@@ -230,7 +230,7 @@ describe('js-dataframe-explode', ()=>{
   })
 })
 
-describe.skip('js-dataframe-explode',()=>{
+describe('js-dataframe-explode',()=>{
   it('handles null in base property',()=>{
     const input = {
       A: [[null,1,null]],
