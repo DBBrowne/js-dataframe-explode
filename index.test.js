@@ -22,7 +22,7 @@ describe('js-dataframe-explode', ()=>{
 
       expect(out).toStrictEqual(expected)
     })
-    it.skip('basing the tracking index on the output', ()=>{
+    it('basing the tracking index on the output', ()=>{
       const input = {
         A: [[0,1,2], 'foo', ['hi'], [3,4]],
         B: [      1,     2,      3,    4 ],
@@ -78,6 +78,25 @@ describe('js-dataframe-explode', ()=>{
         C:  ['a', 'a', 'a',   'a',  'a', 'a', 'a'],
         trackingIndex:
             [0,     0,   0,     1,    2,    3,  3],
+      }
+
+      expect(out).toStrictEqual(expected)
+    })
+    it('with primitive reference values, omitting tracking', ()=>{
+      const input = {
+        A: [[0,1,2], 'foo', ['hi'], [3,4]],
+        B: 2,
+        C: 'a',
+      }
+      const columnsToExplode = ['A']
+      const omitTracking = true
+
+      const out = explode(input, columnsToExplode, null, omitTracking)
+
+      const expected = {
+        A:  [  0,   1,   2, 'foo', 'hi',   3,   4],
+        B:  [  2,   2,   2,     2,    2,   2,   2],
+        C:  ['a', 'a', 'a',   'a',  'a', 'a', 'a'],
       }
 
       expect(out).toStrictEqual(expected)

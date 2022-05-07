@@ -66,37 +66,33 @@ function explode(target, explodeBases, ignoreIndex = false, omitIndex = false){
         })
         throw new Error(`Elements to explode do not match at index ${elementIndex}.\n${nonmatchingElements.join('\n')}`)
       }
-      
-      let targetElement = elementInProperty
-      if ( !Array.isArray(targetElement) ){
-        targetElement = [targetElement]
+
+      if(out['trackingIndex']){
+        const length = isListLike(elementInProperty)? elementInProperty.length: 1
+
+        for(let j=0;j<length;j++){
+          out['trackingIndex'].push(trackingIndex)
+          if(ignoreIndex) trackingIndex++
+        }
       }
-      if(0 === targetElement.length){
-        targetElement = [undefined]
-      }
-      
-      props.forEach(function(propToAppendTo){
-          const targetProp = target[propToAppendTo]
-          if (explodeBases.includes(propToAppendTo)){
-            out[propToAppendTo] = targetProp.flat()
-            return
-          }
-          
-          out[propToAppendTo] = targetProp.map(function (el, i){
-            let length = target[explodeBases[0]][i]?.length || 1
-            if('string' === typeof target[explodeBases[0]][i]){
-              length = 1
-            }
-            return Array(length).fill(el)
-          }).flat()
-        })
+    })
+    props.forEach(function(propToAppendTo){
+        const targetProp = target[propToAppendTo]
+        if (explodeBases.includes(propToAppendTo)){
+          out[propToAppendTo] = targetProp.flat()
+          return
+        }
+        
+        out[propToAppendTo] = target[explodeBases[0]].map(function (_el, i){
+          const length = isListLike(target[explodeBases[0]][i]) ? target[explodeBases[0]][i].length : 1
 
-        out['trackingIndex']?.push(trackingIndex)
-        if(ignoreIndex) trackingIndex++
-      })
+          const fill = isListLike(target[propToAppendTo]) ? target[propToAppendTo][i] : target[propToAppendTo]
 
-    if(!ignoreIndex) trackingIndex++
-
+          return Array(length).fill(fill)
+        }).flat()
+    })
+  
+  if(!ignoreIndex) trackingIndex++
   return out
 }
 
