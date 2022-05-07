@@ -2,7 +2,7 @@ const explode = require('./index.js')
 
 describe('js-dataframe-explode', ()=>{
   describe('explodes a DataFrame-like object', ()=>{
-    it.skip('retaining the tracking index', ()=>{
+    it('retaining the tracking index', ()=>{
       const input = {
         A: [[0,1,2], 'foo', ['hi'], [3,4]],
         B: [      1,     2,      3,    4 ],

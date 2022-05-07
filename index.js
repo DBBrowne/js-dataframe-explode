@@ -75,6 +75,7 @@ function explode(target, explodeBases, ignoreIndex = false, omitIndex = false){
           if(ignoreIndex) trackingIndex++
         }
       }
+    if (!ignoreIndex) trackingIndex++
     })
     props.forEach(function(propToAppendTo){
         const targetProp = target[propToAppendTo]
@@ -92,7 +93,6 @@ function explode(target, explodeBases, ignoreIndex = false, omitIndex = false){
         }).flat()
     })
   
-  if(!ignoreIndex) trackingIndex++
   return out
 }
 
