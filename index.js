@@ -76,12 +76,19 @@ function explode(target, explodeBases, ignoreIndex = false, omitIndex = false){
       }
       
       props.forEach(function(propToAppendTo){
+          const targetProp = target[propToAppendTo]
           if (explodeBases.includes(propToAppendTo)){
-            out[propToAppendTo] = target[propToAppendTo].flat()
+            out[propToAppendTo] = targetProp.flat()
             return
           }
           
-          out[propToAppendTo] = target[propToAppendTo].flat()
+          out[propToAppendTo] = targetProp.map(function (el, i){
+            let length = target[explodeBases[0]][i]?.length || 1
+            if('string' === typeof target[explodeBases[0]][i]){
+              length = 1
+            }
+            return Array(length).fill(el)
+          }).flat()
         })
 
         out['trackingIndex']?.push(trackingIndex)
