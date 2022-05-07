@@ -23,7 +23,11 @@
   "homepage": "https://github.com/DBBrowne/js-dataframe-explode#readme",
   "devDependencies": {
     "@types/jest": "^27.5.0",
+    "eslint": "^8.15.0",
+    "eslint-plugin-jest": "^26.1.5",
     "jest": "^28.0.3"
   },
-  "files": ["index.js"]
+  "files": [
+    "index.js"
+  ]
 }
