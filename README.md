@@ -27,11 +27,11 @@ console.log(singleColumnExplode)
 -->>
 ```console
 {
-  A:  [             0,               1,               2, 'foo', undefined,           3,          4],
-  B:  [             1,               1,               1,     1,         1,           1,          1],
-  C:  [['a', 'b', 'c'],['a', 'b', 'c'], ['a', 'b', 'c'],   NaN,         [], ['d', 'e'], ['d', 'e']],
+  A:[            0,            1,            2,'foo',undefined,        3,        4],
+  B:[            1,            1,            1,    1,        1,        1,        1],
+  C:[['a','b','c'],['a','b','c'],['a','b','c'],  NaN,       [],['d','e'],['d','e']],
   trackingIndex:
-      [0, 0, 0,     1,    2, 3, 3],
+    [0, 0, 0,     1,    2, 3, 3],
 }
 ```
 ```js
@@ -41,11 +41,11 @@ console.log(doubleColumnExplode)
 -->>
 ```console
 {
-  A:  [  0,     1,   2, 'foo', undefined,   3,   4],
-  B:  [  1,     1,   1,     1,         1,   1,   1],
-  C:  ['a',   'b', 'c',   NaN, undefined, 'd', 'e'],
+  A:[  0,     1,   2, 'foo', undefined,   3,   4],
+  B:[  1,     1,   1,     1,         1,   1,   1],
+  C:['a',   'b', 'c',   NaN, undefined, 'd', 'e'],
   trackingIndex:
-      [  0,     0,   0,     1,         2,   3,   3],
+    [  0,     0,   0,     1,         2,   3,   3],
 }
 ```
 
