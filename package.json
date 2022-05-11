@@ -1,6 +1,6 @@
 {
   "name": "@dbbrowne/js-dataframe-explode",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "JavaScript implementation of Python's Pandas#dataframe.explode method",
   "main": "index.js",
   "scripts": {
