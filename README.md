@@ -9,7 +9,7 @@ Javascript / Node implementation of [Python's Pandas DataFrame#explode](https://
 - [Demos](#demos)
 - [Usage](#usage)
 - [Running Tests](#running-tests)
-- [Known Isues](#known-issues)
+- [Known Issues](#known-issues)
 
 ### Demos
 ```js
